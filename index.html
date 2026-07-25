@@ -743,8 +743,6 @@
       <div id="cartlist"></div>
       <div class="foot">
         <div class="row"><span>Total</span><span id="modaltotal">$0</span></div>
-        <input id="cname" placeholder="Tu nombre y apellido *" autocomplete="name">
-        <p id="nameerr" class="nameerr">Poné tu nombre para enviar el pedido.</p>
         <button id="send">Enviar pedido por WhatsApp</button>
       </div>
     </div>
@@ -803,15 +801,8 @@
   function sendWhatsApp() {
     const { sum, count } = totals();
     if (!count) return;
-    const input = document.getElementById('cname');
-    const nombre = input.value.trim();
-    // El nombre es obligatorio: sin él no se manda el pedido.
-    if (!nombre) {
-      document.getElementById('nameerr').style.display = 'block';
-      input.focus();
-      return;
-    }
-    let msg = 'Hola! Soy ' + nombre + '. Quiero hacer este pedido:\n\n';
+    // No se pide el nombre: en WhatsApp ya se ve quién manda el pedido.
+    let msg = 'Hola! Quiero hacer este pedido:\n\n';
     for (const id in cart) {
       msg += '• ' + cart[id] + 'x ' + BYID[id].name + ' — ' + money(cart[id] * BYID[id].price) + '\n';
     }
