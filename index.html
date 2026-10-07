@@ -2,844 +2,170 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>MEDINSUMOS — Lista de precios</title>
+<meta name="theme-color" content="#FFFFFF">
+<title>Medinsumos — Insumos médico-estéticos para profesionales</title>
+<meta name="description" content="Venta exclusiva a profesionales de la salud. Pedí tu alta por WhatsApp y recibí la lista de precios.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Medinsumos">
+<meta property="og:title" content="Medinsumos — Insumos médico-estéticos para profesionales">
+<meta property="og:description" content="Venta exclusiva a profesionales de la salud. Pedí tu alta por WhatsApp y recibí la lista de precios.">
+<meta property="og:url" content="https://medinsumos.ar/">
+<meta property="og:image" content="https://medinsumos.ar/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23fff%22%2F%3E%3Cg%20transform%3D%22translate(5%2014)%20scale(0.1731)%20translate(-148%20-177)%22%3E%3Cpath%20fill%3D%22%231D3557%22%20d%3D%22M200%20185H266L326%20305L386%20185H452V380H398V282L346%20380H306L254%20282V380H200Z%22%2F%3E%3Cpath%20fill%3D%22%233AA6D8%22%20stroke%3D%22%23FFFFFF%22%20stroke-width%3D%228%22%20paint-order%3D%22stroke%22%20d%3D%22M200%20222H244V266H288V312H244V356H200V312H156V266H200Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
 <style>
+  :root { --navy: #1D3557; --navy-2: #24426B; --sky: #3AA6D8; --sky-soft: #E3F2FA; --bg: #F4F7FA; --line: #E3E8EF; --muted: #5E6B7D; --wa: #1FAF54; color-scheme: light; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f4f5f7; color: #10243E; padding-bottom: 90px; }
-  header { background: #10243E; color: #fff; padding: 18px 16px; position: sticky; top: 0; z-index: 5; }
-  header h1 { font-size: 20px; letter-spacing: .5px; }
-  header p { font-size: 12px; opacity: .7; margin-top: 2px; }
-  .searchwrap { position: sticky; top: 62px; z-index: 4; background: #f4f5f7; padding: 12px 16px; }
-  #search { width: 100%; padding: 12px 14px; border: 1px solid #d7dbe0; border-radius: 12px; font-size: 15px; }
-  .chips { display: flex; align-items: center; gap: 6px; overflow-x: auto; margin-top: 8px; padding-bottom: 2px; -webkit-overflow-scrolling: touch; }
-  .chips::-webkit-scrollbar { display: none; }
-  .chiplabel { font-size: 11px; text-transform: uppercase; letter-spacing: .5px; color: #9aa2ad; flex-shrink: 0; margin-right: 2px; }
-  .chip { flex-shrink: 0; border: 1px solid #d7dbe0; background: #fff; color: #5b6774; border-radius: 999px; padding: 6px 12px; font-size: 13px; white-space: nowrap; cursor: pointer; }
-  .chip.active { background: #10243E; color: #fff; border-color: #10243E; }
-  main { padding: 4px 16px 16px; max-width: 640px; margin: 0 auto; }
-  h2.sec { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: #1B5FAA; margin: 20px 4px 10px; }
-  /* Promos */
-  .promo { background: #fff; border: 1px solid #ffe0a6; border-radius: 16px; overflow: hidden; margin-bottom: 12px; display: flex; }
-  .promo-img { width: 110px; object-fit: cover; }
-  .promo-body { padding: 12px; flex: 1; }
-  .promo-body h3 { font-size: 16px; }
-  .promo-desc { font-size: 13px; color: #5b6774; margin: 4px 0 8px; }
-  .promo-foot { display: flex; align-items: center; justify-content: space-between; }
-  /* Grid de productos */
-  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .card { background: #fff; border: 1px solid #e7e9ee; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
-  .thumb { position: relative; aspect-ratio: 1/1; background: #eef0f3; }
-  .thumb img { width: 100%; height: 100%; object-fit: cover; }
-  .noimg { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #aeb4bd; font-size: 12px; }
-  .badge { position: absolute; top: 8px; left: 8px; background: #1B5FAA; color: #fff; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; }
-  .card-body { padding: 10px 12px 12px; display: flex; flex-direction: column; flex: 1; }
-  .brand { font-size: 10px; text-transform: uppercase; letter-spacing: .5px; color: #9aa2ad; }
-  .name { font-size: 14px; line-height: 1.25; margin: 2px 0 8px; flex: 1; }
-  .card-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-  .prices { display: flex; flex-direction: column; }
-  .old { font-size: 11px; color: #aeb4bd; text-decoration: line-through; }
-  .price { font-size: 16px; font-weight: 800; }
-  .add { background: #1B5FAA; color: #fff; border: none; border-radius: 10px; font-size: 18px; font-weight: 700; width: 38px; height: 38px; cursor: pointer; flex-shrink: 0; }
-  .promo .add { width: auto; height: auto; padding: 8px 16px; font-size: 14px; }
-  /* Barra del carrito */
-  #cartbar { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #10243E; color: #fff; padding: 14px 16px; align-items: center; justify-content: space-between; z-index: 6; }
-  #cartbar .info { font-size: 13px; }
-  #cartbar .info b { font-size: 17px; display: block; }
-  #opencart { background: #25D366; color: #fff; border: none; border-radius: 12px; padding: 12px 18px; font-size: 15px; font-weight: 700; cursor: pointer; }
-  /* Modal */
-  #modal { display: none; position: fixed; inset: 0; z-index: 10; align-items: flex-end; justify-content: center; }
-  #backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.5); }
-  .sheet { position: relative; background: #fff; width: 100%; max-width: 640px; border-radius: 20px 20px 0 0; max-height: 85vh; display: flex; flex-direction: column; }
-  .sheet header { background: #fff; color: #10243E; position: static; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #eef0f3; }
-  .sheet header h2 { font-size: 17px; }
-  #closecart { background: none; border: none; font-size: 26px; color: #9aa2ad; cursor: pointer; line-height: 1; }
-  #cartlist { overflow-y: auto; padding: 8px 16px; }
-  .crow { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f2f3f5; }
-  .cname { font-size: 14px; font-weight: 600; }
-  .cprice { font-size: 12px; color: #8b93a0; }
-  .qty { display: flex; align-items: center; gap: 12px; }
-  .qty button { width: 30px; height: 30px; border: 1px solid #d7dbe0; background: #fff; border-radius: 8px; font-size: 18px; cursor: pointer; }
-  .foot { padding: 14px 16px; border-top: 1px solid #eef0f3; }
-  .foot .row { display: flex; justify-content: space-between; font-size: 16px; font-weight: 800; margin-bottom: 10px; }
-  #cname { width: 100%; padding: 11px 12px; border: 1px solid #d7dbe0; border-radius: 10px; font-size: 14px; margin-bottom: 10px; }
-  .nameerr { display: none; color: #d92d20; font-size: 12px; margin: -6px 0 10px; }
-  .shiprow { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #10243E; padding: 10px 12px; background: #f4f5f7; border-radius: 10px; margin-bottom: 10px; cursor: pointer; }
-  .shiprow input { width: 18px; height: 18px; }
-  .shipnote { color: #8b93a0; font-size: 12px; }
-  .shipcost { margin-left: auto; font-weight: 700; }
-  #send { width: 100%; background: #25D366; color: #fff; border: none; border-radius: 12px; padding: 14px; font-size: 16px; font-weight: 700; cursor: pointer; }
-  footer { text-align: center; font-size: 11px; color: #9aa2ad; padding: 20px 16px; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #fff; color: var(--navy); -webkit-font-smoothing: antialiased; line-height: 1.5; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+
+  header { position: sticky; top: 0; z-index: 5; background: rgba(255,255,255,.94); backdrop-filter: saturate(1.6) blur(10px); -webkit-backdrop-filter: saturate(1.6) blur(10px); border-bottom: 1px solid var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--navy); }
+  .brand svg { width: 42px; height: 28px; }
+  .brand b { font-weight: 700; letter-spacing: .16em; font-size: 15px; }
+  .navcta { display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 999px; background: var(--navy); color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; }
+
+  .cta { display: inline-flex; align-items: center; justify-content: center; gap: 10px; height: 54px; padding: 0 26px; border-radius: 14px; background: var(--wa); color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; box-shadow: 0 8px 20px rgba(31,175,84,.25); transition: transform .15s ease, box-shadow .15s ease; }
+  .cta:hover { transform: translateY(-1px); box-shadow: 0 12px 26px rgba(31,175,84,.3); }
+  .cta svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+  /* Hero */
+  .hero { position: relative; overflow: hidden; background: linear-gradient(180deg, var(--bg) 0%, #fff 100%); }
+  .hero .wrap { display: grid; gap: 28px; padding-top: 40px; padding-bottom: 48px; align-items: center; }
+  .pill { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--navy); background: var(--sky-soft); border-radius: 999px; padding: 6px 12px; }
+  .pill i { width: 8px; height: 8px; border-radius: 50%; background: var(--sky); }
+  h1 { font-size: clamp(32px, 8.4vw, 54px); line-height: 1.06; letter-spacing: -.02em; font-weight: 800; margin: 16px 0 14px; }
+  h1 em { font-style: normal; color: var(--sky); }
+  .lead { font-size: 17px; color: var(--muted); max-width: 34em; }
+  .hero-actions { margin-top: 26px; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+  .fine { font-size: 13px; color: var(--muted); }
+  .mark-big { display: none; }
+  .mark-big svg { width: 100%; height: auto; filter: drop-shadow(0 30px 40px rgba(29,53,87,.12)); }
+
+  section { padding: 56px 0; }
+  .kicker { font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--sky); }
+  h2 { font-size: clamp(26px, 6vw, 36px); line-height: 1.15; letter-spacing: -.015em; margin: 8px 0 24px; }
+
+  /* Cómo comprar */
+  .steps { display: grid; gap: 14px; counter-reset: paso; }
+  .step { background: var(--bg); border-radius: 20px; padding: 22px; position: relative; }
+  .step::before { counter-increment: paso; content: counter(paso); display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 800; margin-bottom: 14px; }
+  .step h3 { font-size: 18px; margin-bottom: 4px; }
+  .step p { color: var(--muted); font-size: 15px; }
+
+  /* Beneficios */
+  .perks { display: grid; gap: 14px; }
+  .perk { border: 1px solid var(--line); border-radius: 20px; padding: 22px; display: flex; gap: 14px; align-items: flex-start; }
+  .perk .ic { width: 44px; height: 44px; border-radius: 12px; background: var(--sky-soft); color: var(--navy); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .perk .ic svg { width: 22px; height: 22px; }
+  .perk h3 { font-size: 17px; }
+  .perk p { color: var(--muted); font-size: 15px; }
+
+  /* Qué vas a encontrar */
+  .alt { background: var(--bg); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 9px 16px; font-size: 15px; font-weight: 600; }
+  .labs { margin-top: 30px; }
+  .labs h3 { font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+  .labs .chip { font-weight: 500; color: var(--muted); }
+
+  /* Cierre */
+  .final { background: var(--navy); color: #fff; border-radius: 28px; padding: 40px 24px; text-align: center; position: relative; overflow: hidden; }
+  .final::after { content: ''; position: absolute; width: 320px; height: 320px; right: -120px; top: -140px; border-radius: 50%; background: radial-gradient(circle, rgba(58,166,216,.45), transparent 70%); }
+  .final h2 { margin: 0 0 10px; position: relative; }
+  .final p { color: rgba(255,255,255,.78); margin-bottom: 26px; position: relative; }
+  .final .cta { position: relative; }
+
+  footer { padding: 36px 0 44px; text-align: center; color: var(--muted); font-size: 13px; }
+  footer .brand { justify-content: center; margin-bottom: 10px; }
+
+  @media (min-width: 760px) {
+    .hero .wrap { grid-template-columns: 1.25fr .75fr; padding-top: 72px; padding-bottom: 80px; }
+    .mark-big { display: block; padding: 20px; }
+    .hero-actions { flex-direction: row; align-items: center; gap: 18px; }
+    .steps, .perks { grid-template-columns: repeat(3, 1fr); }
+    section { padding: 80px 0; }
+    .final { padding: 56px 40px; }
+  }
 </style>
 </head>
 <body>
   <header>
-    <h1>MEDINSUMOS</h1>
-    <p>Lista de precios · 6 de octubre de 2026</p>
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Medinsumos"><svg xmlns="http://www.w3.org/2000/svg" viewBox="148 177 312 211" aria-hidden="true"><path fill="#1D3557" d="M200 185H266L326 305L386 185H452V380H398V282L346 380H306L254 282V380H200Z"/><path fill="#3AA6D8" stroke="#FFFFFF" stroke-width="8" paint-order="stroke" d="M200 222H244V266H288V312H244V356H200V312H156V266H200Z"/></svg><b>MEDINSUMOS</b></a>
+      <a class="navcta" href="https://wa.me/5491130075252?text=Hola!%20Soy%20profesional%20de%20la%20salud%20y%20quiero%20darme%20de%20alta%20como%20cliente%20de%20Medinsumos.%0A%0ANombre%20y%20apellido%3A%20%0AMatr%C3%ADcula%3A%20%0ADirecci%C3%B3n%20de%20entrega%3A%20" target="_blank" rel="noopener">Quiero ser cliente</a>
+    </div>
   </header>
 
-  <div class="searchwrap">
-    <input id="search" type="search" placeholder="Buscar producto..." autocomplete="off">
-    <div class="chips">
-          <span class="chiplabel">Tipo</span>
-          <button class="chip active" data-filter="cat" data-val="">Todos</button>
-          <button class="chip" data-filter="cat" data-val="bioestimulador">Bioestimulador</button><button class="chip" data-filter="cat" data-val="biorremodelador">Biorremodelador</button><button class="chip" data-filter="cat" data-val="crema anestesica">Crema anestesica</button><button class="chip" data-filter="cat" data-val="enzimas biologicas">Enzimas Biologicas</button><button class="chip" data-filter="cat" data-val="fillers/relleno">Fillers/Relleno</button><button class="chip" data-filter="cat" data-val="hydrobooster">Hydrobooster</button><button class="chip" data-filter="cat" data-val="mesoterapia">Mesoterapia</button><button class="chip" data-filter="cat" data-val="relleno">Relleno</button><button class="chip" data-filter="cat" data-val="skinbooster">Skinbooster</button><button class="chip" data-filter="cat" data-val="toxina">Toxina</button>
-        </div><div class="chips">
-          <span class="chiplabel">Laboratorio</span>
-          <button class="chip active" data-filter="lab" data-val="">Todos</button>
-          <button class="chip" data-filter="lab" data-val="allergan">Allergan</button><button class="chip" data-filter="lab" data-val="galderma">Galderma</button><button class="chip" data-filter="lab" data-val="ibsa">IBSA</button><button class="chip" data-filter="lab" data-val="m&amp;e">M&amp;E</button><button class="chip" data-filter="lab" data-val="merz">Merz</button><button class="chip" data-filter="lab" data-val="oxa">Oxa</button><button class="chip" data-filter="lab" data-val="pb serum">PB Serum</button><button class="chip" data-filter="lab" data-val="tov medical">Tov Medical</button>
-        </div>
-  </div>
-
-  <main>
-    <h2 class="sec">Promociones</h2>
-      <article class="promo" data-id="promo2" data-name="Promo Harmonyca">
-        <img class="promo-img" src="img/promo2.webp" alt="Promo Harmonyca" loading="lazy">
-        <div class="promo-body">
-          <h3>Promo Harmonyca</h3>
-          <p class="promo-desc">Llevando 3 unidades 10% off (Descuento aplicado en el valor que figura)</p>
-          <div class="promo-foot">
-            <span class="price">$837.000</span>
-            <button class="add" data-id="promo2">Agregar</button>
+  <main id="top">
+    <div class="hero">
+      <div class="wrap">
+        <div>
+          <span class="pill"><i></i>Exclusivo para profesionales de la salud</span>
+          <h1>Insumos médico-estéticos para tu <em>consultorio</em>.</h1>
+          <p class="lead">Bioestimulador, biorremodelador, crema anestesica, enzimas biologicas y más, de los laboratorios con los que trabajás. Hacés el pedido por WhatsApp y te lo llevamos.</p>
+          <div class="hero-actions">
+            <a class="cta " href="https://wa.me/5491130075252?text=Hola!%20Soy%20profesional%20de%20la%20salud%20y%20quiero%20darme%20de%20alta%20como%20cliente%20de%20Medinsumos.%0A%0ANombre%20y%20apellido%3A%20%0AMatr%C3%ADcula%3A%20%0ADirecci%C3%B3n%20de%20entrega%3A%20" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.4-.3Z"/></svg><span>Quiero ser cliente</span></a>
+            <span class="fine">Te pedimos nombre, matrícula y dirección.</span>
           </div>
         </div>
-      </article>
-      <article class="promo" data-id="promo3" data-name="Botox X 5">
-        <img class="promo-img" src="img/promo3.webp" alt="Botox X 5" loading="lazy">
-        <div class="promo-body">
-          <h3>Botox X 5</h3>
-          <p class="promo-desc">Llevando 5 unidades 5% Off (Descuento aplicado en el valor que figura)</p>
-          <div class="promo-foot">
-            <span class="price">$1.125.750</span>
-            <button class="add" data-id="promo3">Agregar</button>
-          </div>
-        </div>
-      </article>
-      <article class="promo" data-id="promo4" data-name="Botox X 10">
-        <img class="promo-img" src="img/promo4.webp" alt="Botox X 10" loading="lazy">
-        <div class="promo-body">
-          <h3>Botox X 10</h3>
-          <p class="promo-desc">Llevando 10 unidades 10% off (Descuento aplicado en el valor que figura)</p>
-          <div class="promo-foot">
-            <span class="price">$2.133.000</span>
-            <button class="add" data-id="promo4">Agregar</button>
-          </div>
-        </div>
-      </article>
-      <article class="promo" data-id="promo5" data-name="Xeomin X 5">
-        <img class="promo-img" src="img/promo5.webp" alt="Xeomin X 5" loading="lazy">
-        <div class="promo-body">
-          <h3>Xeomin X 5</h3>
-          <p class="promo-desc">Llevando 5 unidades 5% off (Descuento aplicado en el valor que figura)</p>
-          <div class="promo-foot">
-            <span class="price">$973.750</span>
-            <button class="add" data-id="promo5">Agregar</button>
-          </div>
-        </div>
-      </article>
-      <article class="promo" data-id="promo6" data-name="Xeomin X 10">
-        <img class="promo-img" src="img/promo6.webp" alt="Xeomin X 10" loading="lazy">
-        <div class="promo-body">
-          <h3>Xeomin X 10</h3>
-          <p class="promo-desc">Llevando 10 unidades 10% off (Descuento aplicado en el valor que figura)</p>
-          <div class="promo-foot">
-            <span class="price">$1.845.000</span>
-            <button class="add" data-id="promo6">Agregar</button>
-          </div>
-        </div>
-      </article>
-    <h2 class="sec">Productos</h2>
-    <div class="grid">
-      <article class="card" data-search="viscoderm ibsa hydrobooster" data-cat="hydrobooster" data-lab="ibsa" data-id="p47">
-        <div class="thumb">
-          <img src="img/p47.webp" alt="Viscoderm" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">IBSA</div>
-          <h3 class="name">Viscoderm</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$125.000</span>
-            </div>
-            <button class="add" data-id="p47">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="novuma burgeon/vivancy m&amp;e bioestimulador" data-cat="bioestimulador" data-lab="m&amp;e" data-id="p202">
-        <div class="thumb">
-          <img src="img/p202.webp" alt="Novuma" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">Burgeon/Vivancy</div>
-          <h3 class="name">Novuma</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$180.000</span>
-            </div>
-            <button class="add" data-id="p202">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="botox allergan toxina" data-cat="toxina" data-lab="allergan" data-id="p1">
-        <div class="thumb">
-          <img src="img/p1.webp" alt="BOTOX" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">allergan</div>
-          <h3 class="name">BOTOX</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$237.000</span>
-            </div>
-            <button class="add" data-id="p1">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="alidya ibsa" data-cat="" data-lab="ibsa" data-id="p17">
-        <div class="thumb">
-          <img src="img/p17.webp" alt="ALIDYA" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">IBSA</div>
-          <h3 class="name">ALIDYA</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$360.000</span>
-            </div>
-            <button class="add" data-id="p17">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="xeomin toxina merz toxina" data-cat="toxina" data-lab="merz" data-id="p9">
-        <div class="thumb">
-          <img src="img/p9.webp" alt="XEOMIN" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">TOXINA</div>
-          <h3 class="name">XEOMIN</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$205.000</span>
-            </div>
-            <button class="add" data-id="p9">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="deneb h tov medical relleno" data-cat="relleno" data-lab="tov medical" data-id="p201">
-        <div class="thumb">
-          <img src="img/p201.webp" alt="DeneB H" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">Tov Medical</div>
-          <h3 class="name">DeneB H</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$310.000</span>
-            </div>
-            <button class="add" data-id="p201">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="dysport 500u. galderma toxina" data-cat="toxina" data-lab="galderma" data-id="p38">
-        <div class="thumb">
-          <img src="img/p38.webp" alt="DYSPORT 500U." loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">Galderma</div>
-          <h3 class="name">DYSPORT 500U.</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$472.000</span>
-            </div>
-            <button class="add" data-id="p38">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="dysport 300 toxina galderma toxina" data-cat="toxina" data-lab="galderma" data-id="p19">
-        <div class="thumb">
-          <img src="img/p19.webp" alt="DYSPORT 300" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">TOXINA</div>
-          <h3 class="name">DYSPORT 300</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$300.000</span>
-            </div>
-            <button class="add" data-id="p19">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="voluma juvederm allergan fillers/relleno" data-cat="fillers/relleno" data-lab="allergan" data-id="p6">
-        <div class="thumb">
-          <img src="img/p6.webp" alt="VOLUMA" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">Juvederm</div>
-          <h3 class="name">VOLUMA</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$270.000</span>
-            </div>
-            <button class="add" data-id="p6">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="nuit oxa bioestimulador" data-cat="bioestimulador" data-lab="oxa" data-id="p29">
-        <div class="thumb">
-          <img src="img/p29.webp" alt="NUIT" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">Oxa</div>
-          <h3 class="name">NUIT</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$250.000</span>
-            </div>
-            <button class="add" data-id="p29">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="belotero revive belotero merz skinbooster" data-cat="skinbooster" data-lab="merz" data-id="p39">
-        <div class="thumb">
-          <img src="img/p39.webp" alt="Belotero Revive" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">Belotero</div>
-          <h3 class="name">Belotero Revive</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$125.000</span>
-            </div>
-            <button class="add" data-id="p39">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="radiesse merz bioestimulador" data-cat="bioestimulador" data-lab="merz" data-id="p13">
-        <div class="thumb">
-          <img src="img/p13.webp" alt="RADIESSE" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">MERZ</div>
-          <h3 class="name">RADIESSE</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$200.000</span>
-            </div>
-            <button class="add" data-id="p13">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="harmonyca allergan bioestimulador" data-cat="bioestimulador" data-lab="allergan" data-id="p8">
-        <div class="thumb">
-          <img src="img/p8.webp" alt="HARMONYCA" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">allergan</div>
-          <h3 class="name">HARMONYCA</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$310.000</span>
-            </div>
-            <button class="add" data-id="p8">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="ultra plus xc juvederm allergan fillers/relleno" data-cat="fillers/relleno" data-lab="allergan" data-id="p3">
-        <div class="thumb">
-          <img src="img/p3.webp" alt="ULTRA PLUS XC" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">Juvederm</div>
-          <h3 class="name">ULTRA PLUS XC</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$230.000</span>
-            </div>
-            <button class="add" data-id="p3">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="ultra xc juvederm allergan fillers/relleno" data-cat="fillers/relleno" data-lab="allergan" data-id="p5">
-        <div class="thumb">
-          <img src="img/p5.webp" alt="ULTRA XC" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">Juvederm</div>
-          <h3 class="name">ULTRA XC</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$220.000</span>
-            </div>
-            <button class="add" data-id="p5">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="volift juvederm allergan fillers/relleno" data-cat="fillers/relleno" data-lab="allergan" data-id="p4">
-        <div class="thumb">
-          <img src="img/p4.webp" alt="VOLIFT" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">Juvederm</div>
-          <h3 class="name">VOLIFT</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$260.000</span>
-            </div>
-            <button class="add" data-id="p4">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="volux juvederm allergan fillers/relleno" data-cat="fillers/relleno" data-lab="allergan" data-id="p2">
-        <div class="thumb">
-          <img src="img/p2.webp" alt="VOLUX" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">Juvederm</div>
-          <h3 class="name">VOLUX</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$242.000</span>
-            </div>
-            <button class="add" data-id="p2">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="skinvive juvederm allergan skinbooster" data-cat="skinbooster" data-lab="allergan" data-id="p45">
-        <div class="thumb">
-          <img src="img/p45.webp" alt="Skinvive" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">Juvederm</div>
-          <h3 class="name">Skinvive</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$204.000</span>
-            </div>
-            <button class="add" data-id="p45">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="sculptra 2 viales galderma bioestimulador" data-cat="bioestimulador" data-lab="galderma" data-id="p43">
-        <div class="thumb">
-          <img src="img/p43.webp" alt="Sculptra 2 viales" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">Galderma</div>
-          <h3 class="name">Sculptra 2 viales</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$600.000</span>
-            </div>
-            <button class="add" data-id="p43">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="skinbooster restylane vital restylane vital galderma skinbooster" data-cat="skinbooster" data-lab="galderma" data-id="p37">
-        <div class="thumb">
-          <img src="img/p37.webp" alt="Skinbooster Restylane Vital" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">Restylane Vital</div>
-          <h3 class="name">Skinbooster Restylane Vital</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$150.000</span>
-            </div>
-            <button class="add" data-id="p37">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="clasic restylane galderma fillers/relleno" data-cat="fillers/relleno" data-lab="galderma" data-id="p26">
-        <div class="thumb">
-          <img src="img/p26.webp" alt="CLASIC" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">RESTYLANE</div>
-          <h3 class="name">CLASIC</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$160.000</span>
-            </div>
-            <button class="add" data-id="p26">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="defyne restylane galderma fillers/relleno" data-cat="fillers/relleno" data-lab="galderma" data-id="p22">
-        <div class="thumb">
-          <img src="img/p22.webp" alt="DEFYNE" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">RESTYLANE</div>
-          <h3 class="name">DEFYNE</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$160.000</span>
-            </div>
-            <button class="add" data-id="p22">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="kysse restylane galderma fillers/relleno" data-cat="fillers/relleno" data-lab="galderma" data-id="p21">
-        <div class="thumb">
-          <img src="img/p21.webp" alt="KYSSE" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">RESTYLANE</div>
-          <h3 class="name">KYSSE</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$160.000</span>
-            </div>
-            <button class="add" data-id="p21">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="lyft restylane galderma fillers/relleno" data-cat="fillers/relleno" data-lab="galderma" data-id="p25">
-        <div class="thumb">
-          <img src="img/p25.webp" alt="LYFT" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">RESTYLANE</div>
-          <h3 class="name">LYFT</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$160.000</span>
-            </div>
-            <button class="add" data-id="p25">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="refyne restylane galderma fillers/relleno" data-cat="fillers/relleno" data-lab="galderma" data-id="p23">
-        <div class="thumb">
-          <img src="img/p23.webp" alt="REFYNE" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">RESTYLANE</div>
-          <h3 class="name">REFYNE</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$160.000</span>
-            </div>
-            <button class="add" data-id="p23">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="sculptra galderma bioestimulador" data-cat="bioestimulador" data-lab="galderma" data-id="p20">
-        <div class="thumb">
-          <img src="img/p20.webp" alt="SCULPTRA" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">GALDERMA</div>
-          <h3 class="name">SCULPTRA</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$355.000</span>
-            </div>
-            <button class="add" data-id="p20">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="volyme restylane galderma fillers/relleno" data-cat="fillers/relleno" data-lab="galderma" data-id="p24">
-        <div class="thumb">
-          <img src="img/p24.webp" alt="VOLYME" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">RESTYLANE</div>
-          <h3 class="name">VOLYME</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$160.000</span>
-            </div>
-            <button class="add" data-id="p24">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="profhilo ibsa bioestimulador" data-cat="bioestimulador" data-lab="ibsa" data-id="p15">
-        <div class="thumb">
-          <img src="img/p15.webp" alt="PROFHILO" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">IBSA</div>
-          <h3 class="name">PROFHILO</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$320.000</span>
-            </div>
-            <button class="add" data-id="p15">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="profhilo structura ibsa biorremodelador" data-cat="biorremodelador" data-lab="ibsa" data-id="p16">
-        <div class="thumb">
-          <img src="img/p16.webp" alt="PROFHILO STRUCTURA" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">IBSA</div>
-          <h3 class="name">PROFHILO STRUCTURA</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$420.000</span>
-            </div>
-            <button class="add" data-id="p16">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="balance belotero merz fillers/relleno" data-cat="fillers/relleno" data-lab="merz" data-id="p10">
-        <div class="thumb">
-          <img src="img/p10.webp" alt="BALANCE" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">Belotero</div>
-          <h3 class="name">BALANCE</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$115.000</span>
-            </div>
-            <button class="add" data-id="p10">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="intense belotero merz fillers/relleno" data-cat="fillers/relleno" data-lab="merz" data-id="p11">
-        <div class="thumb">
-          <img src="img/p11.webp" alt="INTENSE" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">Belotero</div>
-          <h3 class="name">INTENSE</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$125.000</span>
-            </div>
-            <button class="add" data-id="p11">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="radiesse plus merz bioestimulador" data-cat="bioestimulador" data-lab="merz" data-id="p14">
-        <div class="thumb">
-          <img src="img/p14.webp" alt="RADIESSE PLUS" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">MERZ</div>
-          <h3 class="name">RADIESSE PLUS</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$212.000</span>
-            </div>
-            <button class="add" data-id="p14">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="volume belotero merz fillers/relleno" data-cat="fillers/relleno" data-lab="merz" data-id="p12">
-        <div class="thumb">
-          <img src="img/p12.webp" alt="VOLUME" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">Belotero</div>
-          <h3 class="name">VOLUME</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$176.000</span>
-            </div>
-            <button class="add" data-id="p12">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="binaff sulderm oxa crema anestesica" data-cat="crema anestesica" data-lab="oxa" data-id="p32">
-        <div class="thumb">
-          <img src="img/p32.webp" alt="BINAFF" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">SULDERM</div>
-          <h3 class="name">BINAFF</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$49.000</span>
-            </div>
-            <button class="add" data-id="p32">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="nctf oxa mesoterapia" data-cat="mesoterapia" data-lab="oxa" data-id="p31">
-        <div class="thumb">
-          <img src="img/p31.webp" alt="NCTF" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">OXA</div>
-          <h3 class="name">NCTF</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$575.000</span>
-            </div>
-            <button class="add" data-id="p31">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="enzimas colagenasa pb serum enzimas biologicas" data-cat="enzimas biologicas" data-lab="pb serum" data-id="p40">
-        <div class="thumb">
-          <img src="img/p40.webp" alt="Enzimas Colagenasa" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">PB Serum</div>
-          <h3 class="name">Enzimas Colagenasa</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$130.000</span>
-            </div>
-            <button class="add" data-id="p40">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="enzimas hialuronidasa pb serum enzimas biologicas" data-cat="enzimas biologicas" data-lab="pb serum" data-id="p41">
-        <div class="thumb">
-          <img src="img/p41.webp" alt="Enzimas Hialuronidasa" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">PB Serum</div>
-          <h3 class="name">Enzimas Hialuronidasa</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$130.000</span>
-            </div>
-            <button class="add" data-id="p41">+</button>
-          </div>
-        </div>
-      </article>
-      <article class="card" data-search="enzimas lipasa pb serum enzimas biologicas" data-cat="enzimas biologicas" data-lab="pb serum" data-id="p42">
-        <div class="thumb">
-          <img src="img/p42.webp" alt="Enzimas Lipasa" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="brand">PB Serum</div>
-          <h3 class="name">Enzimas Lipasa</h3>
-          <div class="card-foot">
-            <div class="prices">
-              <span class="price">$130.000</span>
-            </div>
-            <button class="add" data-id="p42">+</button>
-          </div>
-        </div>
-      </article></div>
-  </main>
-
-  <div id="cartbar">
-    <div class="info"><span id="cartcount">0</span> ítem(s)<b id="carttotal">$0</b></div>
-    <button id="opencart">Ver pedido</button>
-  </div>
-
-  <div id="modal">
-    <div id="backdrop"></div>
-    <div class="sheet">
-      <header><h2>Tu pedido</h2><button id="closecart">&times;</button></header>
-      <div id="cartlist"></div>
-      <div class="foot">
-        <label class="shiprow"><input type="checkbox" id="envio"> Agregar envío <span class="shipnote">(solo CABA)</span> <span class="shipcost">$6.000</span></label>
-        <div class="row"><span>Total</span><span id="modaltotal">$0</span></div>
-        <button id="send">Enviar pedido por WhatsApp</button>
+        <div class="mark-big" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="148 177 312 211" aria-hidden="true"><path fill="#1D3557" d="M200 185H266L326 305L386 185H452V380H398V282L346 380H306L254 282V380H200Z"/><path fill="#3AA6D8" stroke="#F4F7FA" stroke-width="8" paint-order="stroke" d="M200 222H244V266H288V312H244V356H200V312H156V266H200Z"/></svg></div>
       </div>
     </div>
-  </div>
 
-  <footer>Pedidos por WhatsApp. Envíos únicamente en CABA.<br>Los precios pueden variar sin previo aviso.</footer>
+    <section>
+      <div class="wrap">
+        <div class="kicker">Cómo comprar</div>
+        <h2>Tres pasos y listo</h2>
+        <div class="steps">
+          <div class="step"><h3>Pedí tu alta</h3><p>Escribinos por WhatsApp con tu nombre, matrícula y dirección de entrega.</p></div>
+          <div class="step"><h3>Recibí la lista de precios</h3><p>Validamos tus datos y te mandamos el catálogo con los precios vigentes.</p></div>
+          <div class="step"><h3>Armá tu pedido</h3><p>Lo elegís desde el celular y nos llega armado por WhatsApp. Coordinamos la entrega.</p></div>
+        </div>
+      </div>
+    </section>
 
-  <script>
-  const DATA = {"products":[{"id":"p47","name":"Viscoderm","price":125000},{"id":"p202","name":"Novuma","price":180000},{"id":"p1","name":"BOTOX","price":237000},{"id":"p17","name":"ALIDYA","price":360000},{"id":"p9","name":"XEOMIN","price":205000},{"id":"p201","name":"DeneB H","price":310000},{"id":"p38","name":"DYSPORT 500U.","price":472000},{"id":"p19","name":"DYSPORT 300","price":300000},{"id":"p6","name":"VOLUMA","price":270000},{"id":"p29","name":"NUIT","price":250000},{"id":"p39","name":"Belotero Revive","price":125000},{"id":"p13","name":"RADIESSE","price":200000},{"id":"p8","name":"HARMONYCA","price":310000},{"id":"p3","name":"ULTRA PLUS XC","price":230000},{"id":"p5","name":"ULTRA XC","price":220000},{"id":"p4","name":"VOLIFT","price":260000},{"id":"p2","name":"VOLUX","price":242000},{"id":"p45","name":"Skinvive","price":204000},{"id":"p43","name":"Sculptra 2 viales","price":600000},{"id":"p37","name":"Skinbooster Restylane Vital","price":150000},{"id":"p26","name":"CLASIC","price":160000},{"id":"p22","name":"DEFYNE","price":160000},{"id":"p21","name":"KYSSE","price":160000},{"id":"p25","name":"LYFT","price":160000},{"id":"p23","name":"REFYNE","price":160000},{"id":"p20","name":"SCULPTRA","price":355000},{"id":"p24","name":"VOLYME","price":160000},{"id":"p15","name":"PROFHILO","price":320000},{"id":"p16","name":"PROFHILO STRUCTURA","price":420000},{"id":"p10","name":"BALANCE","price":115000},{"id":"p11","name":"INTENSE","price":125000},{"id":"p14","name":"RADIESSE PLUS","price":212000},{"id":"p12","name":"VOLUME","price":176000},{"id":"p32","name":"BINAFF","price":49000},{"id":"p31","name":"NCTF","price":575000},{"id":"p40","name":"Enzimas Colagenasa","price":130000},{"id":"p41","name":"Enzimas Hialuronidasa","price":130000},{"id":"p42","name":"Enzimas Lipasa","price":130000}],"promos":[{"id":"promo2","name":"Promo Harmonyca","price":837000},{"id":"promo3","name":"Botox X 5","price":1125750},{"id":"promo4","name":"Botox X 10","price":2133000},{"id":"promo5","name":"Xeomin X 5","price":973750},{"id":"promo6","name":"Xeomin X 10","price":1845000}]};
-  const WA = "5491130075252";
-  const SHIP = 6000; // costo de envío (CABA)
-  const BYID = {};
-  [...DATA.products, ...DATA.promos].forEach(i => BYID[i.id] = i);
-  const cart = {}; // id -> qty
-  let envio = false; // el cliente marca si quiere envío
-  const money = n => '$' + Math.round(n).toLocaleString('es-AR');
+    <section style="padding-top:0">
+      <div class="wrap">
+        <div class="perks">
+          <div class="perk"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg></div><div><h3>Envío gratis en CABA</h3><p>En pedidos de más de $800.000. Debajo de ese monto, $8.000.</p></div></div>
+          <div class="perk"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></div><div><h3>Pedidos por WhatsApp</h3><p>Sin formularios ni llamadas: armás el pedido y nos llega con el detalle y el total.</p></div></div>
+          <div class="perk"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div><div><h3>Solo profesionales</h3><p>Trabajamos únicamente con médicos y centros con matrícula vigente.</p></div></div>
+        </div>
+      </div>
+    </section>
 
-  function add(id, delta) {
-    const q = (cart[id] || 0) + delta;
-    if (q <= 0) delete cart[id]; else cart[id] = q;
-    render();
-  }
+    <section class="alt">
+      <div class="wrap">
+        <div class="kicker">Qué vas a encontrar</div>
+        <h2>Lo que usás todos los días</h2>
+        <div class="chips"><span class="chip">Bioestimulador</span><span class="chip">Biorremodelador</span><span class="chip">Crema anestesica</span><span class="chip">Enzimas Biologicas</span><span class="chip">Fillers/Relleno</span><span class="chip">Hydrobooster</span><span class="chip">Mesoterapia</span><span class="chip">Relleno</span><span class="chip">Skinbooster</span><span class="chip">Toxina</span></div>
+        <div class="labs"><h3>Laboratorios y marcas</h3><div class="chips"><span class="chip">Allergan</span><span class="chip">Galderma</span><span class="chip">IBSA</span><span class="chip">M&amp;E</span><span class="chip">Merz</span><span class="chip">Oxa</span><span class="chip">PB Serum</span><span class="chip">Tov Medical</span></div></div>
+      </div>
+    </section>
 
-  function totals() {
-    let count = 0, sum = 0;
-    for (const id in cart) { count += cart[id]; sum += cart[id] * BYID[id].price; }
-    return { count, sum };
-  }
+    <section>
+      <div class="wrap">
+        <div class="final">
+          <h2>¿Querés comprar en Medinsumos?</h2>
+          <p>Pedí tu alta y te mandamos la lista de precios.</p>
+          <a class="cta " href="https://wa.me/5491130075252?text=Hola!%20Soy%20profesional%20de%20la%20salud%20y%20quiero%20darme%20de%20alta%20como%20cliente%20de%20Medinsumos.%0A%0ANombre%20y%20apellido%3A%20%0AMatr%C3%ADcula%3A%20%0ADirecci%C3%B3n%20de%20entrega%3A%20" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.4-.3Z"/></svg><span>Pedir mi alta por WhatsApp</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  function render() {
-    const { count, sum } = totals();
-    const bar = document.getElementById('cartbar');
-    bar.style.display = count ? 'flex' : 'none';
-    document.getElementById('cartcount').textContent = count;
-    document.getElementById('carttotal').textContent = money(sum);
-
-    const list = document.getElementById('cartlist');
-    list.innerHTML = '';
-    for (const id in cart) {
-      const it = BYID[id];
-      const row = document.createElement('div');
-      row.className = 'crow';
-      row.innerHTML =
-        '<div class="cinfo"><div class="cname">' + it.name + '</div>' +
-        '<div class="cprice">' + money(it.price) + ' c/u</div></div>' +
-        '<div class="qty"><button data-dec="' + id + '">–</button>' +
-        '<span>' + cart[id] + '</span>' +
-        '<button data-inc="' + id + '">+</button></div>';
-      list.appendChild(row);
-    }
-    document.getElementById('modaltotal').textContent = money(sum + (envio ? SHIP : 0));
-  }
-
-  function openCart(open) {
-    document.getElementById('modal').style.display = open ? 'flex' : 'none';
-  }
-
-  function sendWhatsApp() {
-    const { sum, count } = totals();
-    if (!count) return;
-    // No se pide el nombre: en WhatsApp ya se ve quién manda el pedido.
-    let msg = 'Hola! Quiero hacer este pedido:\n\n';
-    for (const id in cart) {
-      msg += '• ' + cart[id] + 'x ' + BYID[id].name + ' — ' + money(cart[id] * BYID[id].price) + '\n';
-    }
-    if (envio && SHIP > 0) msg += '\n🚚 Envío (CABA): ' + money(SHIP);
-    msg += '\nTotal: ' + money(sum + (envio ? SHIP : 0));
-    location.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
-  }
-
-  const filters = { cat: '', lab: '' };
-  const search = document.getElementById('search');
-
-  function applyFilters() {
-    const q = search.value.trim().toLowerCase();
-    document.querySelectorAll('.card').forEach(c => {
-      const okSearch = !q || c.dataset.search.includes(q);
-      const okCat = !filters.cat || c.dataset.cat === filters.cat;
-      const okLab = !filters.lab || c.dataset.lab === filters.lab;
-      c.style.display = okSearch && okCat && okLab ? '' : 'none';
-    });
-  }
-
-  document.addEventListener('click', e => {
-    const t = e.target;
-    if (t.classList.contains('chip')) {
-      const grupo = t.dataset.filter;
-      filters[grupo] = t.dataset.val;
-      document.querySelectorAll('.chip[data-filter="' + grupo + '"]').forEach(c => c.classList.remove('active'));
-      t.classList.add('active');
-      applyFilters();
-    }
-    else if (t.dataset.id) add(t.dataset.id, 1);
-    else if (t.dataset.inc) add(t.dataset.inc, 1);
-    else if (t.dataset.dec) add(t.dataset.dec, -1);
-    else if (t.id === 'opencart') openCart(true);
-    else if (t.id === 'closecart' || t.id === 'backdrop') openCart(false);
-    else if (t.id === 'send') sendWhatsApp();
-  });
-
-  const envioChk = document.getElementById('envio');
-  if (envioChk) envioChk.addEventListener('change', () => { envio = envioChk.checked; render(); });
-
-  search.addEventListener('input', applyFilters);
-  </script>
+  <footer>
+    <div class="wrap">
+      <div class="brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="148 177 312 211" aria-hidden="true"><path fill="#1D3557" d="M200 185H266L326 305L386 185H452V380H398V282L346 380H306L254 282V380H200Z"/><path fill="#3AA6D8" stroke="#FFFFFF" stroke-width="8" paint-order="stroke" d="M200 222H244V266H288V312H244V356H200V312H156V266H200Z"/></svg><b>MEDINSUMOS</b></div>
+      Venta exclusiva a profesionales de la salud.
+    </div>
+  </footer>
 </body>
 </html>
